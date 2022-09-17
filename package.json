@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "dev": "turbo run dev",
     "preinstall": "npx -y only-allow pnpm"
   },
   "keywords": [],
