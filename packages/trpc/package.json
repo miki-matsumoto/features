@@ -1,0 +1,19 @@
+{
+  "name": "@features/trpc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tanstack/react-query": "^4.3.4",
+    "@trpc/client": "10.0.0-proxy-alpha.81",
+    "@trpc/next": "10.0.0-proxy-alpha.81",
+    "@trpc/react": "10.0.0-proxy-alpha.81",
+    "@trpc/server": "10.0.0-proxy-alpha.81"
+  }
+}

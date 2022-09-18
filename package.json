@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
+    "db:push": "turbo run db:push",
+    "generate": "turbo run generate",
     "preinstall": "npx -y only-allow pnpm"
   },
   "keywords": [],
@@ -13,5 +15,10 @@
   "license": "ISC",
   "devDependencies": {
     "turbo": "^1.4.7"
-  }
+  },
+  "prisma": {
+    "schema": "packages/prisma/schema.prisma",
+    "seed": "ts-node --transpile-only ./packages/prisma/seed.ts"
+  },
+  "dependencies": {}
 }
