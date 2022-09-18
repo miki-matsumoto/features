@@ -10,7 +10,9 @@ importers:
 
   apps/web:
     specifiers:
+      '@features/prisma': workspace:^1.0.0
       '@features/trpc': workspace:^1.0.0
+      '@next-auth/prisma-adapter': ^1.0.4
       '@types/node': 18.7.18
       '@types/react': 18.0.20
       '@types/react-dom': 18.0.6
@@ -22,7 +24,9 @@ importers:
       react-dom: 18.2.0
       typescript: 4.8.3
     dependencies:
+      '@features/prisma': link:../../packages/prisma
       '@features/trpc': link:../../packages/trpc
+      '@next-auth/prisma-adapter': 1.0.4_bwhncj256yar2zz55r2fl3abo4
       next: 12.3.0_biqbaboplfbrettd7655fr4n2y
       next-auth: 4.10.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -114,6 +118,16 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@next-auth/prisma-adapter/1.0.4_bwhncj256yar2zz55r2fl3abo4:
+    resolution: {integrity: sha512-jIOM6CzCbl2/Mzbx9kb2IjtHoJOeRN9wtQgLk4EUm5bhneSVGv1rtz5TDskvp2UfCa+EK9nDmug+lje41z80Gg==}
+    peerDependencies:
+      '@prisma/client': '>=2.26.0 || >=3'
+      next-auth: ^4
+    dependencies:
+      '@prisma/client': 4.3.1
+      next-auth: 4.10.3_biqbaboplfbrettd7655fr4n2y
+    dev: false
 
   /@next/env/12.3.0:
     resolution: {integrity: sha512-PTJpjAFVbzBQ9xXpzMTroShvD5YDIIy46jQ7d4LrWpY+/5a8H90Tm8hE3Hvkc5RBRspVo7kvEOnqQms0A+2Q6w==}
@@ -265,6 +279,19 @@ packages:
 
   /@panva/hkdf/1.0.2:
     resolution: {integrity: sha512-MSAs9t3Go7GUkMhpKC44T58DJ5KGk2vBo+h1cqQeqlMfdGkxaVB78ZWpv9gYi/g2fa4sopag9gJsNvS8XGgWJA==}
+    dev: false
+
+  /@prisma/client/4.3.1:
+    resolution: {integrity: sha512-FA0/d1VMJNWqzU7WVWTNWJ+lGOLR9JUBnF73GdIPAEVo/6dWk4gHx0EmgeU+SMv4MZoxgOeTBJF2azhg7x0hMw==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.3.0-32.c875e43600dfe042452e0b868f7a48b817b9640b
     dev: false
 
   /@prisma/client/4.3.1_prisma@4.3.1:

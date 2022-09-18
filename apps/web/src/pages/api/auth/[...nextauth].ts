@@ -1,13 +1,24 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-
-console.log(process.env.GOOGLE_CLIENT_ID);
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { prisma } from "@features/prisma";
 
 export default NextAuth({
+  adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
     }),
   ],
   callbacks: {
@@ -24,5 +35,5 @@ export default NextAuth({
       return session;
     },
   },
-  secret: "hey",
+  secret: "Abc@123",
 });
