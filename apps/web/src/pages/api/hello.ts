@@ -11,6 +11,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(initTRPC);
+  console.log(process.env.GOOGLE_CLIENT_ID);
   res.status(200).json({ name: "John Doe", initTRPC });
 }
