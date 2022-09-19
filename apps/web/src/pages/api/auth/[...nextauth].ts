@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { Session, unstable_getServerSession } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@features/prisma";
@@ -34,8 +34,8 @@ export default NextAuth({
     },
     //セッションがチェックされた時に呼ばれる
     async session({ session, token, user }) {
-      session.accessToken = token.accessToken;
-      return session;
+    session.accessToken = token.accessToken
+    return session
     },
   },
   secret: process.env.NEXTAUTH_SECRET,

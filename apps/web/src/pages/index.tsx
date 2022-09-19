@@ -1,22 +1,15 @@
-import type { NextPage } from "next";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { getSession } from "next-auth/react";
+import { NextPageContext } from "next";
 
-export default function Home() {
-  const { data: session } = useSession();
+export default function RedirectPage() {
+  return <></>;
+}
+
+export async function getServerSideProps(context: NextPageContext) {
+  const session = await getSession(context);
   console.log(session);
-
-  if (session && session.user) {
-    return (
-      <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
+  if (!session) {
+    return { redirect: { permanent: false, destination: "/auth/login" } };
   }
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
-  );
+  return { props: { hello: true } };
 }
