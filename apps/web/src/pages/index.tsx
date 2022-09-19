@@ -1,8 +1,9 @@
-import { getSession } from "next-auth/react";
+import { getSession, signOut } from "next-auth/react";
 import { NextPageContext } from "next";
+import { Button } from "@chakra-ui/react";
 
 export default function RedirectPage() {
-  return <></>;
+  return <Button onClick={() => signOut()}>sign out</Button>;
 }
 
 export async function getServerSideProps(context: NextPageContext) {
