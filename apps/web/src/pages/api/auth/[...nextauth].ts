@@ -5,6 +5,9 @@ import { prisma } from "@features/prisma";
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
+  pages: {
+    signIn: "/auth/login",
+  },
   session: {
     strategy: "jwt",
   },
@@ -35,5 +38,5 @@ export default NextAuth({
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET 
+  secret: process.env.NEXTAUTH_SECRET,
 });
