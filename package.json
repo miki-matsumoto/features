@@ -10,7 +10,7 @@
     "db:push": "turbo run db:push",
     "generate": "turbo run generate",
     "preinstall": "npx -y only-allow pnpm",
-    "postinstall": "turbo run generate",
+    "postinstall": "pnpm add prisma -w && turbo run generate",
     "migrate:dev": "turbo run migrate:dev"
   },
   "keywords": [],
