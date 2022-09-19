@@ -35,5 +35,5 @@ export default NextAuth({
       return session;
     },
   },
-  secret: "Abc@123",
+  secret: process.env.NEXTAUTH_SECRET 
 });
