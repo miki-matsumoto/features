@@ -26,16 +26,33 @@ export default NextAuth({
   ],
   callbacks: {
     //jwtが作成・更新された時に呼ばれる
-    async jwt({ token, account }) {
-      if (account) {
-        token.accessToken = account.access_token;
-      }
+    async jwt({ token, account, user }) {
+      const existingUser = await prisma.user.findUnique({
+        where: { email: token.email ?? "" },
+      });
+      if (!existingUser) return token;
+
+      if (!user)
+        return {
+          id: existingUser.id,
+          email: existingUser.email,
+          name: existingUser?.name,
+        };
+
       return token;
     },
     //セッションがチェックされた時に呼ばれる
     async session({ session, token, user }) {
-    session.accessToken = token.accessToken
-    return session
+      console.log(token);
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id,
+          name: token.name,
+          username: token.username,
+        },
+      };
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
