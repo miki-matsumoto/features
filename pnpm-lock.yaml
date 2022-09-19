@@ -4,8 +4,10 @@ importers:
 
   .:
     specifiers:
+      prisma: ^4.3.1
       turbo: ^1.4.7
     devDependencies:
+      prisma: 4.3.1
       turbo: 1.4.7
 
   apps/web:

@@ -10,17 +10,18 @@
     "db:push": "turbo run db:push",
     "generate": "turbo run generate",
     "preinstall": "npx -y only-allow pnpm",
+    "postinstall": "turbo run generate",
     "migrate:dev": "turbo run migrate:dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "prisma": "^4.3.1",
     "turbo": "^1.4.7"
   },
   "prisma": {
     "schema": "packages/prisma/schema.prisma",
     "seed": "ts-node --transpile-only ./packages/prisma/seed.ts"
-  },
-  "dependencies": {}
+  }
 }
