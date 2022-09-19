@@ -6,9 +6,11 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
+    "build": "turbo run build",
     "db:push": "turbo run db:push",
     "generate": "turbo run generate",
-    "preinstall": "npx -y only-allow pnpm"
+    "preinstall": "npx -y only-allow pnpm",
+    "migrate:dev": "turbo run migrate:dev"
   },
   "keywords": [],
   "author": "",
