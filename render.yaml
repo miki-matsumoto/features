@@ -3,7 +3,7 @@ services:
   name: next-js
   env: node
   plan: free
-  buildCommand: pnpm i && pnpm build
+  buildCommand: pnpm i; pnpm build
   startCommand: cd apps/web && pnpm start
   envVars:
   - key: NODE_ENV
