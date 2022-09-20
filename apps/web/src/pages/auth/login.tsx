@@ -1,5 +1,6 @@
 import { Button, Box, Heading } from "@chakra-ui/react";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
+import { NextPageContext } from "next";
 
 const Login = () => {
   return (
@@ -27,5 +28,14 @@ const Login = () => {
     </Box>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const session = await getSession(context);
+
+  if (session) {
+    return { redirect: { permanent: false, destination: "/" } };
+  }
+  return { props: {} };
+}
 
 export default Login;
