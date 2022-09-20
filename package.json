@@ -11,12 +11,14 @@
     "generate": "turbo run generate",
     "preinstall": "npx -y only-allow pnpm",
     "postinstall": "pnpm add prisma -w && turbo run generate",
-    "migrate:dev": "turbo run migrate:dev"
+    "migrate:dev": "turbo run migrate:dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "prettier": "^2.7.1",
     "prisma": "^4.3.1",
     "turbo": "^1.4.7"
   },

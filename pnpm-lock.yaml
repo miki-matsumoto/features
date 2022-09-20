@@ -4,9 +4,11 @@ importers:
 
   .:
     specifiers:
+      prettier: ^2.7.1
       prisma: ^4.3.1
       turbo: ^1.4.7
     devDependencies:
+      prettier: 2.7.1
       prisma: 4.3.1
       turbo: 1.4.7
 
@@ -16,6 +18,7 @@ importers:
       '@chakra-ui/react': ^2.3.2
       '@emotion/react': ^11
       '@emotion/styled': ^11
+      '@features/config': workspace:^0.0.0
       '@features/prisma': workspace:^1.0.0
       '@features/trpc': workspace:^1.0.0
       '@next-auth/prisma-adapter': ^1.0.4
@@ -40,6 +43,7 @@ importers:
       '@chakra-ui/react': 2.3.2_fwuoe4wfdt2wbfex6sxljn2bfy
       '@emotion/react': 11.10.4_axxkdcpdr7up57umjkldobkynm
       '@emotion/styled': 11.10.4_sn4wuyy54zwps25tv4w7lbiz6i
+      '@features/config': link:../../packages/config
       '@features/prisma': link:../../packages/prisma
       '@features/trpc': link:../../packages/trpc
       '@next-auth/prisma-adapter': 1.0.4_bwhncj256yar2zz55r2fl3abo4
@@ -60,6 +64,16 @@ importers:
       jsdom: 20.0.0
       typescript: 4.8.3
       vitest: 0.23.4_jsdom@20.0.0
+
+  packages/config:
+    specifiers:
+      eslint: ^8.22.0
+      prettier: ^2.7.1
+      typescript: ^4.7.4
+    devDependencies:
+      eslint: 8.23.1
+      prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/prisma:
     specifiers:
@@ -4382,6 +4396,12 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /pretty-format/27.5.1:

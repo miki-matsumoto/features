@@ -1,0 +1,16 @@
+{
+  "name": "@features/config",
+  "sideEffects": false,
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "prettier-preset.js"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  }
+}
