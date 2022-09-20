@@ -9,13 +9,16 @@
     "generate": "pnpm prisma generate",
     "migrate:deploy": "pnpm prisma migrate deploy",
     "migrate:dev": "pnpm prisma migrate dev",
-    "build": "pnpm migrate:deploy"
+    "build": "pnpm migrate:deploy",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "prisma": "^4.3.1"
+    "prisma": "^4.3.1",
+    "eslint": "8.23.1"
   },
   "dependencies": {
     "@prisma/client": "^4.3.1"

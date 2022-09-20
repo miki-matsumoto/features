@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "eslint": "8.23.1"
+  },
   "dependencies": {
     "@tanstack/react-query": "^4.3.4",
     "@trpc/client": "10.0.0-proxy-alpha.81",
