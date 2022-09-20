@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix",
-    "test": "vitest run"
+    "test": "vitest run",
+    "types": "tsc --noEmit"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
