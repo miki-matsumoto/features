@@ -14,19 +14,33 @@
     "preinstall": "npx -y only-allow pnpm",
     "postinstall": "pnpm add prisma -w && turbo run generate",
     "migrate:dev": "turbo run migrate:dev",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "simple-git-hooks"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prisma": "^4.3.1",
     "simple-git-hooks": "^2.8.0",
     "turbo": "^1.4.7"
   },
+  "lint-staged": {
+    "(apps|packages)/**/*.{js,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ],
+    "packages/prisma/schema.prisma": [
+      "prisma format"
+    ]
+  },
   "simple-git-hooks": {
-    "pre-commit": "pnpm format",
+    "pre-commit": "pn lint-staged",
     "pre-push": "yarn types"
   },
   "prisma": {
