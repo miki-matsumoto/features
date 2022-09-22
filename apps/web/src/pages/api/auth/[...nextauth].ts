@@ -1,4 +1,4 @@
-import NextAuth, { Session, unstable_getServerSession } from "next-auth";
+import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@features/prisma";
@@ -26,7 +26,7 @@ export default NextAuth({
   ],
   callbacks: {
     //jwtが作成・更新された時に呼ばれる
-    async jwt({ token, account, user }) {
+    async jwt({ token, user }) {
       const existingUser = await prisma.user.findUnique({
         where: { email: token.email ?? "" },
       });
@@ -42,7 +42,7 @@ export default NextAuth({
       return token;
     },
     //セッションがチェックされた時に呼ばれる
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       console.log(token);
       return {
         ...session,
