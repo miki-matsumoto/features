@@ -1,13 +1,16 @@
-import { Box, Button, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, useDisclosure, Flex, Heading } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
-import { NextPage } from "next";
+import { NextPageWithLayout } from "next";
 import { PageHeader } from "../../../components/PageHeader";
+import { AppsLayout } from "../../../layouts";
 
-const Plans: NextPage = () => {
+const HEADER_HEIGHT = 64;
+
+const Plans: NextPageWithLayout = () => {
   const { onOpen } = useDisclosure();
 
   return (
-    <Box>
+    <Box h="full">
       <PageHeader
         title="Plans"
         description="This is plans page"
@@ -17,9 +20,13 @@ const Plans: NextPage = () => {
           </Box>
         }
       />
-      <Box>
+      <Flex
+        h={`calc(100% - ${HEADER_HEIGHT}px)`}
+        justifyContent="center"
+        alignItems="center"
+      >
         <PlanEmptyState handleClick={onOpen} />
-      </Box>
+      </Flex>
     </Box>
   );
 };
@@ -31,9 +38,12 @@ const AddPlanButton = ({ handleClick }: { handleClick: () => void }) => (
 );
 
 const PlanEmptyState = ({ handleClick }: { handleClick: () => void }) => (
-  <Box>
+  <Box textAlign="center">
+    <Heading fontSize="lg">Create first plan</Heading>
     <AddPlanButton handleClick={handleClick} />
   </Box>
 );
+
+Plans.getLayout = (page) => <AppsLayout>{page}</AppsLayout>;
 
 export default Plans;

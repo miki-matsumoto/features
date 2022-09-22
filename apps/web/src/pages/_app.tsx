@@ -1,7 +1,7 @@
-import type { AppProps } from "next/app";
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { ChakraProvider, extendTheme, withDefaultSize } from "@chakra-ui/react";
+import type { AppPropsWithLayout } from "next/app";
 
 const theme = extendTheme(
   {
@@ -26,11 +26,13 @@ const theme = extendTheme(
 export default function MyApp({
   Component,
   pageProps: { session, ...pageProps },
-}: AppProps<{ session: Session }>) {
+}: AppPropsWithLayout<{ session: Session }>) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <ChakraProvider theme={theme}>
       <SessionProvider session={session}>
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} session={session} />)}
       </SessionProvider>
     </ChakraProvider>
   );

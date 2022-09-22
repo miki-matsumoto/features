@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, VStack, Text } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 type Props = {
@@ -20,8 +20,14 @@ export const PageHeader = ({
     alignItems="center"
   >
     <Box>
-      <Heading>{title}</Heading>
-      {description && <Text>{description}</Text>}
+      <VStack spacing={1} align="stretch">
+        <Heading fontSize="xl">{title}</Heading>
+        {description && (
+          <Text fontSize="sm" color="gray.500">
+            {description}
+          </Text>
+        )}
+      </VStack>
     </Box>
     <Box>{rightAlignedComponent && rightAlignedComponent}</Box>
   </Box>
