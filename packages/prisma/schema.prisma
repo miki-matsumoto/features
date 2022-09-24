@@ -60,3 +60,12 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verificationToken")
 }
+
+model Project {
+  id        String   @id @default(cuid())
+  name      String?
+  createdAt DateTime
+  updatedAt DateTime @default(now())
+
+  @@map("projects")
+}

@@ -3,11 +3,12 @@ import { AddIcon } from "@chakra-ui/icons";
 import { NextPageWithLayout } from "next";
 import { PageHeader } from "../../../components/PageHeader";
 import { AppsLayout } from "../../../layouts";
+import { CreatePlan } from "src/features/plan";
 
 const HEADER_HEIGHT = 64;
 
 const Plans: NextPageWithLayout = () => {
-  const { onOpen } = useDisclosure();
+  const { onOpen, isOpen, onClose } = useDisclosure();
 
   return (
     <Box h="full">
@@ -27,6 +28,7 @@ const Plans: NextPageWithLayout = () => {
       >
         <PlanEmptyState handleClick={onOpen} />
       </Flex>
+      <CreatePlan isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };
